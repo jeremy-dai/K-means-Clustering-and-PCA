@@ -22,6 +22,15 @@ idx = zeros(size(X,1), 1);
 %
 
 
+for i = 1:length(X);
+    x = X(i,:);
+    cost = zeros(K, 1);
+    for c =1: K;
+        diff = x - centroids(c,:);
+        cost(c) = diff * diff';
+    end
+    [v, idx(i)] = min(cost);
+end
 
 
 
